@@ -17,14 +17,33 @@ class frame1 extends JFrame{
         ImageIcon imageIcon = new ImageIcon("C:\\Users\\Khristine Lining\\Documents\\NetBeansProjects\\WhoWantsToBeAMillionaire\\Images\\Logo4.png"); // Replace with the actual path to your image
         JLabel imageLabel = new JLabel(imageIcon);
         imageLabel.setBounds(90, 30, 540, 550);
+
+        // I added a starting bg tell me if it ain't fine
+        ImageIcon backgroundImageIcon = new ImageIcon("C:\\Users\\ERLYN\\Desktop\\marcus\\Marcus files\\DCIT50A ACTIVITIES\\wwtbm\\WhoWantsToBeAMillionaire\\bg start.png");
+        JLabel backgroundstart = new JLabel(backgroundImageIcon);
+        backgroundstart.setBounds(0, 0, 750, 800);
         
         playername.setBounds(240,580,300,25);
         pname.setBounds(120, 585, 120, 15);
-        start.setBounds(260,650,220,50);
-        start.setBackground(Color.green);
+        start.setBounds(265,650,220,50);
+        start.setBackground(Color.decode("#7f03a7"));
         start.setForeground(Color.white);
         start.setFocusable(false);
         
+        //added a mouse listener on start button
+        start.addMouseListener(new MouseListener() {
+            public void mouseEntered(MouseEvent m){
+                start.setBackground(Color.decode("#bb03f8"));
+            }
+            public void mouseExited(MouseEvent e) {
+                start.setBackground(Color.decode("#7f03a7"));
+            }
+            public void mouseClicked(MouseEvent e) {}
+            public void mouseReleased(MouseEvent e) {}
+            public void mousePressed(MouseEvent e) {}
+        });
+
+
         
         start.addActionListener(new ActionListener() {
             @Override
@@ -45,6 +64,7 @@ class frame1 extends JFrame{
         f1.add(pname);
         f1.add(start);
         f1.add(imageLabel);
+        f1.getContentPane().add(backgroundstart);
         f1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
         f1.setBounds(0,0,750,800);
@@ -57,6 +77,12 @@ class frame1 extends JFrame{
 class Frame2 extends JFrame {
     public static void page2(String playerName) {
         JFrame f2 = new JFrame("Who Wants to be a Millionaire");
+        
+        // I put a background image on the frame 2 
+        ImageIcon backgroundImageIcon = new ImageIcon("C:\\Users\\ERLYN\\Desktop\\marcus\\Marcus files\\DCIT50A ACTIVITIES\\wwtbm\\WhoWantsToBeAMillionaire\\bg how to play2.jpg");
+        JLabel backgroundLabel = new JLabel(backgroundImageIcon);
+        backgroundLabel.setBounds(0, 0, 750, 800);
+
         JLabel htp = new JLabel("How to Play: ");
         JLabel rules1 = new JLabel("Rules:");
         JLabel rules2 = new JLabel("Build your fortune by answering  questions correctly and moving up the ladder toward Php. 1,000,000.00!");
@@ -74,17 +100,19 @@ class Frame2 extends JFrame {
         f2.setVisible(true);
         f2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
-        htp.setBounds(320, 50, 150, 20);
-        
-        rules1.setBounds(70, 100, 50, 20);
-        rules2.setBounds(70, 130, 600, 20);
-        rules3.setBounds(70, 160, 600, 20);
-        rules4.setBounds(70, 190, 600, 20);
-        rules5.setBounds(70, 220, 600, 20);
-        rules6.setBounds(70, 250, 600, 20);
-        rules7.setBounds(70, 290, 600, 20);
-        
-        play.setBounds(150,440,400,50);
+
+        htp.setBounds(335, 220, 150, 20);
+        // lowered the rules and adjusted it to the middle 
+        rules1.setBounds(70, 250, 600, 20);
+        rules2.setBounds(70, 280, 600, 20);
+        rules3.setBounds(70, 310, 600, 20);
+        rules4.setBounds(70, 340, 600, 20);
+        rules5.setBounds(70, 370, 600, 20);
+        rules6.setBounds(70, 400, 600, 20);
+        rules7.setBounds(70, 430, 600, 20);
+
+        // adjusted the play position from 150,440,400,50 to: so it looks more in the middle of the frame
+        play.setBounds(160,460,400,50);
         f2.add(htp);
         f2.add(rules1);
         f2.add(rules2);
@@ -94,7 +122,18 @@ class Frame2 extends JFrame {
         f2.add(rules6);
         f2.add(rules7);
         f2.add(play);
-       
+        f2.getContentPane().add(backgroundLabel);
+
+        // turned the htp and rules white so it can be more visible cuz of the bg
+        htp.setForeground(Color.WHITE);
+        rules1.setForeground(Color.WHITE);
+        rules2.setForeground(Color.WHITE);
+        rules3.setForeground(Color.WHITE);
+        rules4.setForeground(Color.WHITE);
+        rules5.setForeground(Color.WHITE);
+        rules6.setForeground(Color.WHITE);
+        rules7.setForeground(Color.WHITE);
+
         play.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 f2.setVisible(false);
